@@ -11,7 +11,11 @@ import {
     Pagination,
 } from "@heroui/react";
 
-export default function BooksCardsList({ bookList }: { bookList: any[] }) {
+export default function BooksCardsList({
+    bookList,
+}: {
+    bookList: Object[] | any;
+}) {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const { replace } = useRouter();

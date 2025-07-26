@@ -36,7 +36,7 @@ npm install
 npm run dev
 ```
 
-## How to Use | Back-end ()
+## How to Use | Back-end
 
 Coming soon...
 

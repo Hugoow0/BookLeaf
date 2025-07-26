@@ -48,7 +48,11 @@ export const HeartIcon = ({
     );
 };
 
-export default function BookDetails({ bookDetails }: { bookDetails: any[] }) {
+export default function BookDetails({
+    bookDetails,
+}: {
+    bookDetails: Object[] | any;
+}) {
     const [liked, setLiked] = React.useState(false);
 
     return (
@@ -106,7 +110,7 @@ export default function BookDetails({ bookDetails }: { bookDetails: any[] }) {
                                 <p className="font-medium text-sm">Author(s)</p>
                                 <p className="text-xs text-muted-foreground">
                                     {bookDetails.volumeInfo?.authors?.join(
-                                        ", ",
+                                        ", "
                                     ) || "Unknown author"}
                                 </p>
                             </div>
@@ -135,7 +139,7 @@ export default function BookDetails({ bookDetails }: { bookDetails: any[] }) {
                                                     window.open(
                                                         `https://www.amazon.com/s?k=${bookDetails.volumeInfo?.industryIdentifiers?.[1]?.identifier}` ||
                                                             `https://www.amazon.com/s?k=${bookDetails.volumeInfo?.industryIdentifiers?.[0]?.identifier}`,
-                                                        "_blank",
+                                                        "_blank"
                                                     );
                                                 }}
                                             >
@@ -152,7 +156,7 @@ export default function BookDetails({ bookDetails }: { bookDetails: any[] }) {
                                     variant="ghost"
                                     onPress={
                                         () => {
-                                            (setLiked((v) => !v),
+                                            setLiked((v) => !v),
                                                 addToast({
                                                     icon: (
                                                         <HeartIcon
@@ -163,7 +167,7 @@ export default function BookDetails({ bookDetails }: { bookDetails: any[] }) {
                                                     title: liked
                                                         ? "Book removed from Liked"
                                                         : "Book added to Liked",
-                                                }));
+                                                });
                                         }
                                         // TODO: This is where you would handle the like functionality, e.g., updating a database or state
                                     }
@@ -236,7 +240,7 @@ export default function BookDetails({ bookDetails }: { bookDetails: any[] }) {
                                         >
                                             {categorie}
                                         </Chip>
-                                    ),
+                                    )
                                 ) || "No categories available."}
                             </div>
                         </div>
