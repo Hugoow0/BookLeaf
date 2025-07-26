@@ -10,11 +10,12 @@ import {
     Link,
     Pagination,
 } from "@heroui/react";
+import type { GoogleBooksVolume } from "@/types";
 
 export default function BooksCardsList({
     bookList,
 }: {
-    bookList: Object[] | any;
+    bookList: GoogleBooksVolume[];
 }) {
     const searchParams = useSearchParams();
     const pathname = usePathname();

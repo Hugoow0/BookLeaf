@@ -18,6 +18,7 @@ import {
 } from "@heroui/react";
 import { addToast } from "@heroui/toast";
 import { Popover, PopoverTrigger, PopoverContent } from "@heroui/react";
+import type { GoogleBooksVolume } from "@/types";
 
 export const HeartIcon = ({
     size = 24,
@@ -51,7 +52,7 @@ export const HeartIcon = ({
 export default function BookDetails({
     bookDetails,
 }: {
-    bookDetails: Object[] | any;
+    bookDetails: GoogleBooksVolume;
 }) {
     const [liked, setLiked] = React.useState(false);
 
