@@ -21,7 +21,7 @@ import {
 import { addToast } from "@heroui/toast";
 import { Popover, PopoverTrigger, PopoverContent } from "@heroui/react";
 import type { GoogleBooksVolume } from "@/types";
-
+import parse from "html-react-parser";
 export const HeartIcon = ({
     size = 24,
     strokeWidth = 1.5,
@@ -96,8 +96,10 @@ export default function BookDetails({
                                 className="h-[400px]"
                             >
                                 <p className="text-muted-foreground leading-relaxed">
-                                    {bookDetails.volumeInfo?.description ||
-                                        "No description available."}
+                                    {parse(
+                                        bookDetails.volumeInfo?.description ||
+                                            "No description available."
+                                    ) || "No description available."}
                                 </p>
                             </ScrollShadow>
                         </section>
@@ -253,7 +255,7 @@ export default function BookDetails({
                                             </Tooltip>
                                         </Chip>
                                     )
-                                ) || "No categories available."}
+                                ) || "No categories tag for this book."}
                             </div>
                         </div>
 
