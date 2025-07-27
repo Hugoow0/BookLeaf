@@ -7,6 +7,7 @@ import { Image } from "@heroui/image";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
+import DisorderedGallery from "@/components/disorderedGallery";
 
 export default function Home() {
     return (
@@ -49,7 +50,7 @@ export default function Home() {
                 </Link>
             </div>
 
-            <div className="mt-8 flex flex-col items-center">
+            {/*<div className="mt-8 flex flex-col items-center">
                 <Snippet hideCopyButton hideSymbol variant="bordered">
                     <span>Lets begin...</span>
                 </Snippet>
@@ -61,6 +62,10 @@ export default function Home() {
                     height="auto"
                     className="rounded-lg mt-8"
                 />
+            </div>*/}
+            <div className="mt-8 mb-10 flex flex-col items-center w-full">
+                <span className={title({ class: "mb-4" })}>Let's begin...</span>
+                <DisorderedGallery />
             </div>
         </section>
     );

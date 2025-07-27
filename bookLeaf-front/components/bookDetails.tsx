@@ -72,7 +72,7 @@ export default function BookDetails({
                 {/* Left Column - Scrollable Content */}
                 <div className="lg:col-span-2 space-y-8">
                     {/* Large Icon/Image */}
-                    <div className="rounded-lg p-8 flex items-center justify-center">
+                    <div className="rounded-lg flex items-center justify-center">
                         <Image
                             alt="Album cover"
                             className="object-cover"
