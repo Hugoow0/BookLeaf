@@ -13,9 +13,9 @@ export default function Search() {
     const handleSearch = useDebouncedCallback((term) => {
         const params = new URLSearchParams(searchParams);
         if (term) {
-            params.set("query", term);
+            params.set("q", term);
         } else {
-            params.delete("query");
+            params.delete("q");
         }
         params.delete("page"); // Clear page when search term changes
         replace(`${pathname}?${params.toString()}`);
@@ -32,7 +32,7 @@ export default function Search() {
                     handleSearch(e.target.value);
                 }}
                 radius="full"
-                defaultValue={searchParams.get("query")?.toString()}
+                defaultValue={searchParams.get("q")?.toString()}
                 labelPlacement="outside"
                 placeholder="Search..."
                 startContent={

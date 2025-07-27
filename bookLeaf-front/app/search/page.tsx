@@ -6,12 +6,12 @@ import BooksCardsList from "@/components/booksCardList";
 
 export default async function SearchPage(props: {
     searchParams?: Promise<{
-        query?: string;
+        q?: string;
         page?: string;
     }>;
 }) {
     const searchParams = await props.searchParams;
-    const query = searchParams?.query || "";
+    const query = searchParams?.q || "";
     const booksList = await fetchSearchBooks(query, searchParams?.page || "1");
 
     return (

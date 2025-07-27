@@ -1,3 +1,5 @@
+"use client";
+
 import {
     Navbar as HeroUINavbar,
     NavbarContent,
@@ -36,11 +38,6 @@ export const Navbar = () => {
                 inputWrapper: "bg-default-100",
                 input: "text-sm",
             }}
-            endContent={
-                <Kbd className="hidden lg:inline-block" keys={["command"]}>
-                    k
-                </Kbd>
-            }
             radius="full"
             labelPlacement="outside"
             placeholder="Search..."
@@ -48,6 +45,14 @@ export const Navbar = () => {
                 <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
             }
             type="search"
+            onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                    const query = (e.target as HTMLInputElement).value;
+                    if (query) {
+                        window.location.href = `/search?q=${encodeURIComponent(query)}`;
+                    }
+                }
+            }}
         />
     );
 
@@ -69,7 +74,7 @@ export const Navbar = () => {
                             <NextLink
                                 className={clsx(
                                     linkStyles({ color: "foreground" }),
-                                    "data-[active=true]:text-primary data-[active=true]:font-medium",
+                                    "data-[active=true]:text-primary data-[active=true]:font-medium"
                                 )}
                                 color="foreground"
                                 href={item.href}
@@ -99,10 +104,8 @@ export const Navbar = () => {
           */}
                     <ThemeSwitch />
                 </NavbarItem>
-                <NavbarItem className="hidden lg:flex">
-                    {searchInput}
-                </NavbarItem>
-                <NavbarItem className="hidden md:flex">
+                <NavbarItem className="lg:flex">{searchInput}</NavbarItem>
+                <NavbarItem className="md:flex">
                     <Button
                         as={Link}
                         className="text-sm font-normal text-default-600 bg-default-100"
@@ -151,6 +154,19 @@ export const Navbar = () => {
                             </Link>
                         </NavbarMenuItem>
                     ))}
+                    {searchInput}
+                    <Button
+                        as={Link}
+                        className="text-sm font-normal text-default-600 bg-default-100"
+                        href="/login"
+                        endContent={
+                            <Icon icon="qlementine-icons:user-16" width={20} />
+                        }
+                        variant="ghost"
+                        radius="full"
+                    >
+                        Login
+                    </Button>
                 </div>
             </NavbarMenu>
         </HeroUINavbar>
