@@ -16,6 +16,7 @@ import {
     ScrollShadow,
     Spacer,
     Tooltip,
+    Link,
 } from "@heroui/react";
 import { addToast } from "@heroui/toast";
 import { Popover, PopoverTrigger, PopoverContent } from "@heroui/react";
@@ -137,13 +138,12 @@ export default function BookDetails({
                                                 radius="full"
                                                 variant="ghost"
                                                 color="warning"
-                                                onPress={() => {
-                                                    window.open(
-                                                        `https://www.amazon.com/s?k=${bookDetails.volumeInfo?.industryIdentifiers?.[1]?.identifier}` ||
-                                                            `https://www.amazon.com/s?k=${bookDetails.volumeInfo?.industryIdentifiers?.[0]?.identifier}`,
-                                                        "_blank"
-                                                    );
-                                                }}
+                                                as={Link}
+                                                isExternal={true}
+                                                href={
+                                                    `https://www.amazon.com/s?k=${bookDetails.volumeInfo?.industryIdentifiers?.[1]?.identifier}` ||
+                                                    `https://www.amazon.com/s?k=${bookDetails.volumeInfo?.industryIdentifiers?.[0]?.identifier}`
+                                                }
                                             >
                                                 Amazon
                                             </Button>

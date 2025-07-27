@@ -1,6 +1,8 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { Link } from "@heroui/link";
+import { Button } from "@heroui/button";
+import { ArrowBigUpDash } from "lucide-react";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
@@ -46,10 +48,22 @@ export default function RootLayout({
                 >
                     <div className="relative flex flex-col h-screen">
                         <Navbar />
+                        <span id="top" />
                         <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
                             {children}
                         </main>
                         <footer className="w-full flex items-center justify-center py-3">
+                            <Button
+                                startContent={<ArrowBigUpDash />}
+                                isIconOnly
+                                radius="full"
+                                variant="ghost"
+                                href="#top"
+                                as="a"
+                            ></Button>
+                            <span className="mx-2 text-muted-foreground">
+                                © {new Date().getFullYear()} BookLeaf -
+                            </span>
                             <Link
                                 isExternal
                                 className="flex items-center gap-1 text-current"

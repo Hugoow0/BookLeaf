@@ -12,7 +12,6 @@ export default function Home() {
     return (
         <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
             <div className="inline-block max-w-xl text-center justify-center">
-                <br />
                 <span className={title()}>Search&nbsp;</span>
                 <span className={title({ color: "blue" })}>books</span>
                 <span className={title()}>,&nbsp;</span>
@@ -28,7 +27,6 @@ export default function Home() {
 
             <div className="flex gap-3">
                 <Link
-                    isExternal
                     className={buttonStyles({
                         color: "primary",
                         radius: "full",
