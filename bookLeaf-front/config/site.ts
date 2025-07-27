@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-    name: "Next.js + HeroUI",
+    name: "BookLeaf",
     description:
-        "Make beautiful websites regardless of your design experience.",
+        "Search books, keep track of reading, create book lists and more!",
     navItems: [
         {
             label: "Home",
@@ -66,9 +66,8 @@ export const siteConfig = {
     ],
     links: {
         github: "https://github.com/Hugoow0/BookLeaf",
-        twitter: "https://twitter.com/hero_ui",
-        docs: "https://heroui.com",
-        discord: "https://discord.gg/9b6yyZKmH4",
-        sponsor: "https://patreon.com/jrgarciadev",
+        twitter: "https://twitter.com/",
+        discord: "https://discord.gg/",
+        sponsor: "https://patreon.com/",
     },
 };
