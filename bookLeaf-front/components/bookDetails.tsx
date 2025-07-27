@@ -15,6 +15,7 @@ import {
     Chip,
     ScrollShadow,
     Spacer,
+    Tooltip,
 } from "@heroui/react";
 import { addToast } from "@heroui/toast";
 import { Popover, PopoverTrigger, PopoverContent } from "@heroui/react";
@@ -231,7 +232,7 @@ export default function BookDetails({
                             <h3 className="text-lg font-semibold mb-4">Tags</h3>
                             <div className="text-sm text-muted-foreground leading-relaxed mb-6">
                                 {bookDetails.volumeInfo?.categories?.map(
-                                    (categorie: any) => (
+                                    (categorie: string) => (
                                         <Chip
                                             variant="bordered"
                                             size="sm"
@@ -239,7 +240,17 @@ export default function BookDetails({
                                             startContent={<Tag size={12} />}
                                             key={categorie}
                                         >
-                                            {categorie}
+                                            <Tooltip
+                                                content={categorie}
+                                                showArrow={true}
+                                            >
+                                                {categorie.length > 40
+                                                    ? categorie.substring(
+                                                          0,
+                                                          40
+                                                      ) + "..."
+                                                    : categorie}
+                                            </Tooltip>
                                         </Chip>
                                     )
                                 ) || "No categories available."}
