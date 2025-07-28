@@ -7,6 +7,7 @@ import {
     Languages,
     BookOpenText,
     Tag,
+    Link as LinkIcon,
 } from "lucide-react";
 import {
     Image,
@@ -143,12 +144,38 @@ export default function BookDetails({
                                                 as={Link}
                                                 isExternal={true}
                                                 href={
-                                                    `https://www.amazon.com/s?k=${bookDetails.volumeInfo?.industryIdentifiers?.[1]?.identifier}` ||
-                                                    `https://www.amazon.com/s?k=${bookDetails.volumeInfo?.industryIdentifiers?.[0]?.identifier}`
+                                                    `https://www.amazon.com/s?k=${bookDetails.volumeInfo?.industryIdentifiers?.[1]?.identifier}&i=stripbooks-intl-ship` ||
+                                                    `https://www.amazon.com/s?k=${bookDetails.volumeInfo?.industryIdentifiers?.[0]?.identifier}&i=stripbooks-intl-ship`
                                                 }
                                             >
                                                 Amazon
                                             </Button>
+                                        </div>
+                                    </PopoverContent>
+                                </Popover>
+
+                                <Popover
+                                    placement="bottom"
+                                    showArrow={true}
+                                    onOpenChange={() => {
+                                        navigator.clipboard.writeText(
+                                            window.location.href
+                                        );
+                                    }}
+                                >
+                                    <PopoverTrigger>
+                                        <Button
+                                            isIconOnly
+                                            className="text-default-900/60 data-hover:bg-foreground/10!"
+                                            radius="full"
+                                            variant="ghost"
+                                        >
+                                            <LinkIcon className="w-4 h-4" />
+                                        </Button>
+                                    </PopoverTrigger>
+                                    <PopoverContent>
+                                        <div className="px-1 py-1">
+                                            <span>Copied!</span>
                                         </div>
                                     </PopoverContent>
                                 </Popover>
@@ -234,51 +261,30 @@ export default function BookDetails({
                             <h3 className="text-lg font-semibold mb-4">Tags</h3>
                             <div className="text-sm text-muted-foreground leading-relaxed mb-6">
                                 {bookDetails.volumeInfo?.categories?.map(
-                                    (categorie: string) => (
+                                    (category: string) => (
                                         <Chip
                                             variant="bordered"
                                             size="sm"
                                             className="mr-2 mb-2"
                                             startContent={<Tag size={12} />}
-                                            key={categorie}
+                                            key={category}
                                         >
                                             <Tooltip
-                                                content={categorie}
+                                                content={category}
                                                 showArrow={true}
                                             >
-                                                {categorie.length > 40
-                                                    ? categorie.substring(
+                                                {category.length > 40
+                                                    ? category.substring(
                                                           0,
                                                           40
                                                       ) + "..."
-                                                    : categorie}
+                                                    : category}
                                             </Tooltip>
                                         </Chip>
                                     )
                                 ) || "No categories tag for this book."}
                             </div>
                         </div>
-
-                        {/* Share Section */}
-                        {/* 
-                        <div>
-                            <h3 className="text-sm font-medium mb-4 text-muted-foreground">Share this template</h3>
-                            <div className="flex items-center space-x-3">
-                                <Button variant="ghost" size="md" className="w-8 h-8">
-                                    <Facebook className="w-4 h-4" />
-                                </Button>
-                                <Button variant="ghost" size="md" className="w-8 h-8">
-                                    <Twitter className="w-4 h-4" />
-                                </Button>
-                                <Button variant="ghost" size="md" className="w-8 h-8">
-                                    <Linkedin className="w-4 h-4" />
-                                </Button>
-                                <Button variant="ghost" size="md" className="w-8 h-8">
-                                    <Instagram className="w-4 h-4" />
-                                </Button>
-                            </div>
-                        </div>
-                        */}
                     </div>
                 </div>
             </div>
