@@ -96,12 +96,12 @@ export default function BookDetails({
                                 size={100}
                                 className="h-[400px]"
                             >
-                                <p className="text-muted-foreground leading-relaxed">
+                                <div className="text-muted-foreground leading-relaxed">
                                     {parse(
                                         bookDetails.volumeInfo?.description ||
                                             "No description available."
                                     ) || "No description available."}
-                                </p>
+                                </div>
                             </ScrollShadow>
                         </section>
                     </div>

@@ -52,29 +52,20 @@ export default function RootLayout({
                         <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
                             {children}
                         </main>
-                        <footer className="w-full flex items-center justify-center py-3">
-                            <Button
-                                startContent={<ArrowBigUpDash />}
-                                isIconOnly
-                                radius="full"
-                                variant="ghost"
-                                href="#top"
-                                as="a"
-                            ></Button>
-                            <span className="mx-2 text-muted-foreground">
-                                © {new Date().getFullYear()} BookLeaf -
-                            </span>
-                            <Link
-                                isExternal
-                                className="flex items-center gap-1 text-current"
-                                href="https://heroui.com?utm_source=next-app-template"
-                                title="heroui.com homepage"
-                            >
-                                <span className="text-default-600">
-                                    Powered by
+                        <footer className="w-full flex flex-col items-center justify-center py-3">
+                            <div className="flex items-center justify-center gap-2">
+                                <Button
+                                    startContent={<ArrowBigUpDash />}
+                                    isIconOnly
+                                    radius="full"
+                                    variant="ghost"
+                                    href="#top"
+                                    as="a"
+                                />
+                                <span className="mx-2 text-muted-foreground">
+                                    © {new Date().getFullYear()} BookLeaf
                                 </span>
-                                <p className="text-primary">HeroUI</p>
-                            </Link>
+                            </div>
                         </footer>
                     </div>
                 </Providers>
