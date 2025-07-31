@@ -10,6 +10,7 @@ import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
+import Banner from "@/components/banner";
 
 export const metadata: Metadata = {
     title: {
@@ -47,8 +48,9 @@ export default function RootLayout({
                     themeProps={{ attribute: "class", defaultTheme: "dark" }}
                 >
                     <div className="relative flex flex-col h-screen">
+                        <span id="#" />
                         <Navbar />
-                        <span id="top" />
+                        <Banner />
                         <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
                             {children}
                         </main>
@@ -59,7 +61,7 @@ export default function RootLayout({
                                     isIconOnly
                                     radius="full"
                                     variant="ghost"
-                                    href="#top"
+                                    href="#"
                                     as="a"
                                 />
                                 <span className="mx-2 text-muted-foreground">

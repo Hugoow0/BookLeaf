@@ -94,7 +94,7 @@ export default function BookDetails({
                             <ScrollShadow
                                 hideScrollBar
                                 size={100}
-                                className="h-[400px]"
+                                className="max-h-[400px]"
                             >
                                 <div className="text-muted-foreground leading-relaxed">
                                     {parse(

@@ -3,7 +3,8 @@
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import { SearchIcon } from "@/components/icons";
-import { Input } from "@heroui/input";
+import { Input, Button } from "@heroui/react";
+import Link from "next/link";
 
 export default function Search() {
     const searchParams = useSearchParams();
@@ -40,6 +41,21 @@ export default function Search() {
                 }
                 type="search"
             />
+            <Button
+                className="ml-2 sm:w-auto pl-8 pr-8"
+                radius="full"
+                style={{
+                    border: "solid 2px transparent",
+                    backgroundImage: `linear-gradient(hsl(var(--heroui-background)), hsl(var(--heroui-background))), linear-gradient(to right, #ffffffff, #512d75ff)`,
+                    backgroundOrigin: "border-box",
+                    backgroundClip: "padding-box, border-box",
+                }}
+                variant="bordered"
+                as={Link}
+                href="/search/ai"
+            >
+                Or try AI Search now
+            </Button>
         </div>
     );
 }
