@@ -37,7 +37,7 @@ export async function fetchAiSearchBooks(query: string) {
         return String(response.text);
     } catch (error) {
         console.error("AISearch Books Fetch Error:", error);
-        throw new Error("Failed to fetch AI response.");
+        throw new Error("Failed to fetch AI response: " + error);
     }
 }
 

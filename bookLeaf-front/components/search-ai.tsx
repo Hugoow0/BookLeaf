@@ -2,9 +2,7 @@
 
 import { useState } from "react";
 import { SearchIcon } from "@/components/icons";
-import { Input } from "@heroui/input";
-import { Button } from "@heroui/button";
-import { Alert } from "@heroui/alert";
+import { Input, Button, Alert } from "@heroui/react";
 import BooksCardsListAI from "@/components/BooksCardList-ai";
 
 export default function AiSearch() {
